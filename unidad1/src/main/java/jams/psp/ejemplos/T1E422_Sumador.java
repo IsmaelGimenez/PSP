@@ -1,7 +1,7 @@
 package jams.psp.ejemplos;
 
 public class T1E422_Sumador {
-    public static void main(String args) {
+    public static void main(String[] args) {
         // Se asume que los argumentos son números a sumar
         long resultado = 0;
         for (String arg : args) {

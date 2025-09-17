@@ -6,15 +6,15 @@ import java.io.InputStreamReader;
 import java.io.File;
 
 public class T1E422_Lanzador {
-    public static void main(String args) {
+    public static void main(String[] args) {
         try {
             // Se configura el comando para lanzar la clase Sumador
             // Nota: Es crucial especificar la ruta correcta al.class
-            ProcessBuilder pb = new ProcessBuilder("java", "Sumador", "10", "20", "30");
+            ProcessBuilder pb = new ProcessBuilder("java", "jams.psp.ejemplos.T1E422_Sumador", "10", "343", "30");
 
             // Para que ProcessBuilder encuentre la clase, se debe establecer el directorio
             // de trabajo al directorio donde se encuentran los archivos.class 
-            pb.directory(new File("ruta/a/build/classes"));
+            pb.directory(new File("unidad1/target/classes"));
 
             Process p = pb.start();
 
