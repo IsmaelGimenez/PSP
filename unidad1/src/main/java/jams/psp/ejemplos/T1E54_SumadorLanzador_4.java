@@ -18,7 +18,7 @@ public class T1E54_SumadorLanzador_4 {
         long salto = rangoTotal / NUM_PROCESOS;
         long resto = rangoTotal % NUM_PROCESOS; // Para distribuir números sobrantes
         long inicioIntervalo = n1;
-
+        long suma=0;
         for (int i = 1; i <= NUM_PROCESOS; i++) {
             System.out.print("n1:" + inicioIntervalo);
             long  finIntervalo = inicioIntervalo + salto - 1;
@@ -29,33 +29,35 @@ public class T1E54_SumadorLanzador_4 {
             }
 
             System.out.println(" n2:" + finIntervalo);
-            lanzarSumador(inicioIntervalo, finIntervalo);
+            suma+=lanzarSumador(inicioIntervalo, finIntervalo);
             inicioIntervalo = finIntervalo + 1;
-            System.out.println("Suma lanzada...");
+            //System.out.println("Suma lanzada...");
         }
-
+        System.out.println("Suma total"+suma);
         TFin = System.currentTimeMillis();
         tiempo = TFin - TInicio;
         System.out.println("Tiempo de ejecución en milisegundos: " + tiempo);
     }
 
-    public static void lanzarSumador(Long n1, Long n2) {
+    public static long lanzarSumador(Long n1, Long n2) {
         String clase = "jams.psp.ejemplos.T1E54_Sumador";
+        long suma=0;
         ProcessBuilder pb;
         try {
             pb = new ProcessBuilder("java", clase, n1.toString(), n2.toString());
-            pb.directory(new File("Codigo/unidad1/target/classes"));
+            pb.directory(new File("unidad1/target/classes"));
             Process p = pb.start();
 
             // Se lee la salida del subproceso
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+                suma+=Long.parseLong(line.trim());
             }
-
+            //p.waitFor(),
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return suma;
     }
 }

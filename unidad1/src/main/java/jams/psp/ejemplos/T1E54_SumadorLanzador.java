@@ -13,11 +13,13 @@ public class T1E54_SumadorLanzador {
         System.out.println("Tiempo de ejecución en milisegundos: " + tiempo);
     }
 
-    public void lanzarSumador(Double n1, Double n2) {
+    public long lanzarSumador(Double n1, Double n2) {
         String clase = "jams.psp.ejemplos.T1E54_Sumador";
         ProcessBuilder pb;
+        long num=0;
         try {
             pb = new ProcessBuilder("java", clase, n1.toString(), n2.toString());
+            
             // Con este método, el proceso creado hereda los flujos de entrada y salida del padre
             // ¿Se ha ejecutado la suma?
             // Descomentar para comprobar
@@ -26,5 +28,6 @@ public class T1E54_SumadorLanzador {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return num;
     }
 }
