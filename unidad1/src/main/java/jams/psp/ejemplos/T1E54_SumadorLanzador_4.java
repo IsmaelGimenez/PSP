@@ -54,7 +54,7 @@ public class T1E54_SumadorLanzador_4 {
             while ((line = reader.readLine()) != null) {
                 suma+=Long.parseLong(line.trim());
             }
-            //p.waitFor(),
+            //p.waitFor();
         } catch (Exception e) {
             e.printStackTrace();
         }

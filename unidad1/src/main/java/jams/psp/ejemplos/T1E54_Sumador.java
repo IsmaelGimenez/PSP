@@ -5,10 +5,10 @@ package jams.psp.ejemplos;
  */
 public class T1E54_Sumador {
     public static void main(String[] args) {
-        double numero1 = Double.parseDouble(args[0]);
-        double numero2 = Double.parseDouble(args[1]);
-        double resultado = 0;
-        for (double i = numero1; i <= numero2; i++) {
+        long numero1 = Long.parseLong(args[0]);
+        long numero2 = Long.parseLong(args[1]);
+        long resultado = 0;
+        for (long i = numero1; i <= numero2; i++) {
             resultado = resultado + i;
         }
         System.out.println(resultado);
